@@ -1,0 +1,64 @@
+Problem Statement
+Given a range from l to r, Your task is to find the sum of the second last digit of the prime numbers between that range.
+Input
+The first line of the input contains the T test cases.
+Next T lines contains the range value l and r.
+
+Constraints
+1 <= T <= 100
+1 <= l < r <= 1e5
+Difference between l and r dosen't exceed 1e4.
+Output
+Print the required sum.
+Example
+Sample Input 1:
+3
+2 15
+1 20
+3 10
+
+Sample Output 1:
+2
+4
+0
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                       Scanner inputTaker = new Scanner(System.in);
+        int t = inputTaker.nextInt();
+        while(t>0){
+            int l = inputTaker.nextInt();
+            int r = inputTaker.nextInt();
+            System.out.println(getPrimeDigitSum(l,r));
+            t--;
+        }
+    }
+
+    public static int getPrimeDigitSum(int l, int r){
+        int sum = 0;
+        for(int i = l; i<=r ; i++){
+            if(checkPrime(i)){
+                sum += (i%100)/10;
+            }
+        }
+        return sum;
+    }
+
+    public static boolean checkPrime(int n){
+
+        for(int i = 2; i <= Math.sqrt(n); i++){
+            if(n%i == 0){
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+}

@@ -1,0 +1,39 @@
+Problem Statement
+You are given a big number in form of a string A of characters from 0 to 9.
+
+Check whether the given number is divisible by 30 .
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                       Scanner inputTaker = new Scanner(System.in);
+        String str = inputTaker.nextLine();
+
+        //check divisible by 10
+        if(str.charAt(str.length() -1) != '0'){
+            System.out.println("No");
+        }else{
+
+            //check divisible by 3
+            char[] chars = str.toCharArray();
+            int sumOfDigits = 0;
+            for(int i =0; i<chars.length; i++){
+
+                char charDigit = chars[i];
+                sumOfDigits += (charDigit - '0');
+            }
+
+            if(sumOfDigits%3 == 0){
+                System.out.println("Yes");
+            }else{
+                System.out.println("No");
+            }
+
+        }
+    }
+}

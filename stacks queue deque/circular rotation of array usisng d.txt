@@ -1,0 +1,12 @@
+Problem Statement
+Given an array arr[] of N integers and another integer D, your task is to perform D right circular rotations on the array and print the modified array.
+
+static void circularRotate(Deque<Integer> deq, int d, int n)
+{
+        // Your code here 
+         for (int i = 0; i < d%n; i++) { 
+            int val = deq.peekLast(); 
+            deq.removeLast(); 
+            deq.addFirst(val); 
+         }
+ }

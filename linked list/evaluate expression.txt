@@ -1,0 +1,88 @@
+Problem Statement
+Given a postfix expression, your task is to evaluate given expression.
+
+Infix expression: The expression of the form a operator b. When an operator is in-between every pair of operands.
+Postfix expression: The expression of the form a b operator. When an operator is followed for every pair of operands.
+
+Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                       Scanner inputTaker = new Scanner(System.in);
+        int n = inputTaker.nextInt();
+        // to go to next line
+        inputTaker.nextLine();
+        // next line to read spaces also
+        String str = inputTaker.nextLine();
+        
+        System.out.println(evaluatePostfix(str));
+    }
+    
+    // program to calculate evaluatePostfix
+    public static int evaluatePostfix(String str) {
+        // create a stack
+        Stack<Integer> stack = new Stack<>();
+        
+        for (int i = 0; i < str.length(); i++) {
+
+            char c = str.charAt(i);
+            if (c == ' ') {
+                continue;
+            }
+            else if (Character.isDigit(c))
+            {
+                int n = 0;
+                //extract the characters and store it in num
+                while(Character.isDigit(c))
+                {
+                    n = n*10 + (int)(c-'0');
+                    i++;
+   
+                    if(i < str.length())
+                        {
+                            c = str.charAt(i);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                }
+                i--;
+                //push the number in stack
+                stack.push(n);
+            }
+            // if operator pop two elements and apply operator
+            //then push back result
+            else {
+
+                int val1 = stack.pop();
+                int val2 = stack.pop();
+                switch(c) {
+                    case '+' : {
+                        stack.push(val2 + val1);
+                        break;
+                    }
+                    case '-' : {
+                        stack.push(val2 - val1);
+                        break;
+                    }
+                    case '/' : {
+                        stack.push(val2 / val1);
+                        break;
+                    }
+                    case '*' : {
+                        stack.push(val2 * val1);
+                        break;
+                    }
+                    // case '^' : stack.push (Math.pow(val1, val2));
+                }
+            }
+        }
+        return stack.pop();
+    }

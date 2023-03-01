@@ -1,0 +1,29 @@
+Given a sorted array arr[] of N integers and a number K is given. The task is to check if the element K is present in the array or not.
+Note: Use binary search to solve the problem
+
+static int isPresent(long arr[], int n, long k)
+{
+	    // Your code here
+	//	static int isPresent(long arr[], int n, long k)
+{
+	    // Your code herein
+		int low=0;int high=n-1;
+
+		while(low<=high){
+			int mid=low+(high-low)/2;
+
+			if(arr[mid]==k){
+				return 1;
+			}else if(arr[mid]<k){
+				low=mid+1;
+			}
+
+			else{
+				high=mid-1;
+			}
+
+			mid=(low+(high-low)/2);
+		}
+		return -1;
+}
+}

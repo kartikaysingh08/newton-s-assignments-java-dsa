@@ -1,0 +1,22 @@
+Problem Statement
+Ram is studying in Class V and has four subjects, each subject carry 100 marks. He passed with flying colors in his exam, but when his neighbour asked how much percentage did he got in exam, he got stuck in calculation. Ram is a good student but he forgot how to calculate percentage. Help Ram to get him out of this problem.
+
+Given four numbers a , b , c and d denoting the marks in four subjects . Calculate the overall percentage (rounded down ) Ram got in exam .
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) { 
+
+                      Scanner scanner = new Scanner(System.in);
+                      int a = scanner.nextInt();
+                      int b = scanner.nextInt();
+                      int c = scanner.nextInt();
+                      int d = scanner.nextInt();
+                      int percentage = (a+b+c+d)/4;
+                      System.out.println(percentage);
+    }
+}

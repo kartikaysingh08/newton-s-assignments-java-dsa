@@ -1,0 +1,19 @@
+Problem Statement
+Given an array of n pairs of integers. Your task is to sort the array on the basis of the first element of pairs in descending order. If the first element is equal in two or more pairs then give preference to the pair that has a greater second element value.
+
+static class  secondelement implements Comparator<Pair> 
+{
+    public int compare(Pair a, Pair b)
+    {
+        if(a.x==b.x)
+        {
+            return b.y-a.y;
+        }
+        return b.x - a.x;
+    }
+}
+static Pair[] SortPair(Pair arr[], int n)  { 
+ //enter your code here
+Arrays.sort(arr, new secondelement());
+return arr;
+ }

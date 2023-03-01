@@ -1,0 +1,17 @@
+Problem Statement
+You have been given a queue of integers of size N, you need to reverse the elements in the queue.
+You can only use standard queue operations.
+
+class Solution{
+    public void reverseQueue(Queue<Integer> Q){
+       Stack<Integer> stack = new Stack<Integer>();
+       while(!Q.isEmpty())
+       {stack.push(Q.poll());
+       }
+        while(!stack.isEmpty())
+        {
+            Q.add(stack.peek());
+            stack.pop();
+        }
+    } 
+}

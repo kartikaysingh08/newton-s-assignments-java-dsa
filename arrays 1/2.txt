@@ -1,0 +1,70 @@
+Given an array of integers of size N, your task is to find the maximum parity index of this array.
+Parity Index is the maximum difference between two indices i and j (1 <= i < j <= N) of an array A such that Ai < Aj.
+Input
+The first line contains a single integer N, next line contains N space-separated integers depicting the values of the array.
+
+Constraints:-
+1 < = N < = 105
+1 < = Arr[i] < = 105
+Output
+Print the maximum value of j- i under the given condition, if no pair satisfies the condition print -1.
+Example
+Sample Input 1:-
+5
+1 2 3 4 5
+
+Sample Output 1:-
+4
+
+Sample Input 2:-
+5
+5 4 3 2 1
+
+Sample Output 2:-
+-1
+
+Explanation 1:
+The maximum difference of jth - ith index is 4:(4th - 0th), also arr[4] > arr[0]
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                      Scanner sc=new Scanner(System.in);
+                      int N=sc.nextInt();
+
+                      int []arr=new int[N];
+                      int []Lmin=new int[N];
+                      int []Rmax=new int[N]; 
+
+                      for(int i=0;i<N;i++){
+                          arr[i]=sc.nextInt();
+                      }
+                    Lmin[0]=arr[0];
+                      for(int i=1;i<N;i++){
+                          Lmin[i]= Math.min(arr[i],Lmin[i-1]);
+                      }
+                      Rmax[N-1]=arr[N-1];
+
+                      for(int i=N-2;i>=0;i--){
+                          Rmax[i]=Math.max(arr[i],Rmax[i+1]);
+                      }
+                      int i=0,j=0;
+                      int maxDiff=-1;
+                      while(i<N && j<N){
+                          if(Lmin[i]<Rmax[j]){
+                              maxDiff=Math.max(maxDiff,j-i);
+                              j++;
+                          }else{
+                              i++;
+                          }
+                      }
+                           System.out.println(maxDiff);
+                    
+    }
+}

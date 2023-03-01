@@ -1,0 +1,19 @@
+Problem Statement
+Find factorial of a given number N.
+
+
+static int Factorial(int N){
+//Enter your code here
+ int factorial = 1;
+        for(int i =N;i>=1;i--){
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    public static int printFactorialUsingRecursion(int N){
+        if(N == 1){
+            return 1;
+        }
+        return x * printFactorialUsingRecursion(N-1);	
+}

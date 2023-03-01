@@ -1,0 +1,23 @@
+Problem Statement
+Given a string s, your task is to find the total number of unique characters in a string.
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                      Scanner scanner = new Scanner(System.in);
+                      String str =scanner.nextLine();
+                      HashMap<Character,Boolean> map = new HashMap<>();
+                      for(int i =0;i<str.length();i++){
+                          Character ch = str.charAt(i);
+                          if (!map.containsKey(ch)){
+                              map.put(ch,true);
+                          }
+                      }
+                      System.out.println(map.size());
+    }
+    }
