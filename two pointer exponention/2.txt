@@ -1,0 +1,9 @@
+Problem Statement
+Given a number N your task is to print its first two digits in reverse order. For eg:- If the given number is 123 then the output will be 21.
+
+static int firstTwo(int N){
+//Enter your code here
+String str = String.valueOf(N);
+String str2 = "" + str.charAt(1) + str.charAt(0);
+return Integer.parseInt(str2);
+}

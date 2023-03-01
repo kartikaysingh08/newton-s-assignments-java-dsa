@@ -1,0 +1,31 @@
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                      Scanner scanner = new Scanner(System.in);
+                      int n = scanner.nextInt();
+                      int m = scanner.nextInt();
+                      int i,j,k ;
+                      if(n<=20 && m>=3){
+                      for(i=1;i<=m;i++){
+                          System.out.print("*");
+                      }
+                      System.out.println();
+                      for(j=1;j<n-1;j++){
+                           System.out.print("*");
+                           for(k=1;k<m-1;k++){
+                              System.out.print(" "); 
+                           } System.out.println("*");
+                      }
+                      for (i=1;i<=m;i++){
+                          System.out.print("*");
+                      }
+                      }
+    }
+}

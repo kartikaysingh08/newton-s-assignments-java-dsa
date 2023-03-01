@@ -1,0 +1,10 @@
+static int Charity(int N, int M){
+//Enter your code here
+if(N>M||N==M||M<2*N){
+return -1;
+}else{
+    int getcloth = M/N;
+    return getcloth;
+}
+
+}
